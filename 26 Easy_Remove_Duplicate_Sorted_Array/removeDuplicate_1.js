@@ -8,14 +8,13 @@
              */
             if (nums[i] !== nums[j] ) {
                 i++;
-            } else {
-                i =j;
+                nums[i] = nums[j];
             }
         }
-        return nums.length;
+        return i+1;
     }
     i,j
     const array = [1,1,2,2,2,2,3,4];
-    const duplicatesRemoved = removeDuplicateEntries(array);
-    console.info(duplicatesRemoved);
+    const duplicatesRemovedLength = removeDuplicateEntries(array);
+    console.info(duplicatesRemovedLength);
 })
