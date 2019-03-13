@@ -16,14 +16,12 @@
                 // if starts with closing tag
                 // If ends with an opening tag
                 if ((stringArray.length) %2 != 0) return false;
-                if (!mapping[stringArray[i]]) return false;
-                if (mapping[stringArray[stringArray.length-1]]) return false;
                 if (mapping[stringArray[i]]) {
                     i++;
                 } else {
                     if (mapping[stringArray[i-1]] == stringArray[i]) {
                         stringArray.splice(i-1, 2);
-                        i = 0;
+                        //i++;
                     } else {
                         return false;
                     }
