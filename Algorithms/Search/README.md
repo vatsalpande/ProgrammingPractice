@@ -1,4 +1,4 @@
-**Whenever you see sorted array and you have to find somthing, 
+**Whenever you see sorted array and you have to search for some target value, 
 think of binary search.** 
 
 **Whenever you see O(log n), think for binary search. It may be the solution**
