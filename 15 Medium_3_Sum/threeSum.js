@@ -1,4 +1,10 @@
 (function IIFE() {
+    /**
+     * Issue encountered - How to check uniqueness of element set if all elements in a set are same
+     * Ex - [0,0,0] - Sum is 0. But if 0 exists in another combination, this will fail.
+      * @param desiredSum
+     * @return {function(*): Array}
+     */
     function threeSum(desiredSum) {
         return function arrayToFind(array) {
             const triplets = [];
@@ -10,17 +16,17 @@
                             if (triplets.length === 0) {
                                 triplets.push([array[i], array[j], array[z]]);
                             }
-                            let isUnique = false;
-                            for (let uniqueIndex = 0; uniqueIndex< triplets.length; uniqueIndex++) {
-                                const tripletCurrentElement = triplets[uniqueIndex];
-                                isUnique = (
-                                    (tripletCurrentElement.indexOf(array[i]) !== -1) ||
-                                    (tripletCurrentElement.indexOf(array[j]) !== -1) ||
+                            let isElementSetExists = false;
+                            for (let index = 0; index< triplets.length; index++) {
+                                const tripletCurrentElement = triplets[index];
+                                isElementSetExists = (
+                                    (tripletCurrentElement.indexOf(array[i]) !== -1) &&
+                                    (tripletCurrentElement.indexOf(array[j]) !== -1) &&
                                     (tripletCurrentElement.indexOf(array[z]) !== -1)
                                 );
-                                if (!isUnique) break;
+                                if (isElementSetExists) break; // If this set exists, early break;
                             }
-                            if (isUnique) {
+                            if (!isElementSetExists) {
                                 triplets.push([array[i], array[j], array[z]]);
                             }
                         }
@@ -31,6 +37,6 @@
         }
     }
     const tripletsWithSum0 = threeSum(0);
-    const uniqueTriplets = tripletsWithSum0([-1, 0, 1, 2, -1, -4]);
+    const uniqueTriplets = tripletsWithSum0([-4,-4,4,0,4,0,0]);
     console.info(uniqueTriplets)
 }())
