@@ -8,24 +8,20 @@
 
     }
    function isValidPalindrome(string) {
-        const validStringArray = [...string]
-            .map(item => item.toLowerCase())
-            .filter(item => isAlphanumeric(item))
+       const validStringArray = [...string]
+           .map(item => item.toLowerCase())
+           .filter(item => isAlphanumeric(item))
+       let i=0; let j = validStringArray.length;
        let isValid = true;
-        const isEvenChars = validStringArray%2 == 0;
-        const middleElementIndex = Math.floor(validStringArray.length/2);
-        for (let i=0; i<middleElementIndex; i++) {
+        while(i <= j) {
             const start = validStringArray[i];
-            // If its even characters, then two middle points, else just one
-            // so just assign end to start.
-            let end = validStringArray[(validStringArray.length-1)-i];
-            if (i=== middleElementIndex) {
-                if (!isEvenChars) {
-                    end = start;
-                }
+            const end = validStringArray[j -1];
+            if (start === end) {
+                i++; j--;
+            } else {
+                isValid = false;
+                break;
             }
-            isValid = start == end;
-            if (!isValid) break;
         }
         return isValid;
    }
