@@ -1,5 +1,6 @@
 (function IIFE() {
     function strStr(haystack, needle) {
+        // We can directly do haystack.search(needle) if inbuilt function can be used
         if (needle.trim() == "") return 0;
         let index = -1;
         const haystackArray = [...haystack];
