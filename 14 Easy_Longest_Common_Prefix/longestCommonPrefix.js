@@ -1,9 +1,10 @@
 class LongestPrefix {
     constructor(stringArray) {
-        this.stringArray = stringArray;
+        this.stringArray = Array.isArray(stringArray) ? stringArray : [];
     }
     getLongestPrefix() {
         let longestPrefix = "";
+        if (this.stringArray.length == 0) return longestPrefix;
         const sortedStrings = this.stringArray.sort((a, b) => a.length -b.length);
         const baseString = [...sortedStrings[0]];
         let isExit = false;
