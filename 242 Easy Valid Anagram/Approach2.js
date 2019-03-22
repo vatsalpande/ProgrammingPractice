@@ -16,12 +16,9 @@
         if (!isValidInput(s,t)) return false;
         if (s === t) return true;
         const secondStringWordMapping = {};
-        const minLength = Math.min(s, t);
-        const baseString = s.length == minLength ? s : t;
-        const secondString = baseString == s ? t: s;
-        const wordCountBaseString = getWordCount(baseString);
+        const wordCountBaseString = getWordCount(s);
         let isAnagram = true;
-        for(let i of secondString) {
+        for(let i of t) {
             if (!wordCountBaseString[i]) {
                 isAnagram = false;
                 break;
