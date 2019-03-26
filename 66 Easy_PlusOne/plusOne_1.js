@@ -26,5 +26,5 @@
         }
         return array;
     }
-    console.info(plusOne([4,3,2,1]);
+    console.info(plusOne([4,3,2,1]));
 })
